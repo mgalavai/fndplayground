@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Switch } from "@/components/ui/switch"
-import CharacterList from '@/components/CharacterList'
+import CharacterList from '@/components/ui/CharacterList'
 import CharacterTable, { Character } from '@/components/CharacterTable'
 import characterData from '@/data/characters.json'
 
