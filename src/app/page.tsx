@@ -22,7 +22,7 @@ export default function Home() {
 
   const typedCharacterData = characterData as CharacterData
 
-  const filteredCharacters = Object.entries(typedCharacterData.characters).filter(([name, char]) => {
+  const filteredCharacters: [string, Character][] = Object.entries(typedCharacterData.characters).filter(([name, char]) => {
     return name.toLowerCase().includes(searchTerm.toLowerCase()) &&
       (filter === 'all' || char.color.toLowerCase().startsWith(filter))
   })
