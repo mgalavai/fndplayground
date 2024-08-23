@@ -6,12 +6,13 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Switch } from "@/components/ui/switch"
 import CharacterList from '@/components/ui/CharacterList'
-import CharacterTable, { Character } from '@/components/CharacterTable'
+import CharacterTable from '@/components/CharacterTable'
+import { Character } from '@/types/Character'
 import characterData from '@/data/characters.json'
 
 type CharacterData = {
   characters: {
-    [key: string]: Omit<Character, 'name'>
+    [key: string]: Character
   }
 }
 

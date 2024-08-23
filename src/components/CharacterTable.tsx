@@ -21,21 +21,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { ArrowUpDown, ChevronDown, ChevronUp } from "lucide-react"
-
-export type Character = {
-  class: string
-  species: string
-  color: string
-  stars: string
-  ai: string
-  basic_attack: string
-  basic_health: string
-  asc_attack: string
-  asc_health: string
-  traits: string[]
-  gear: string[]
-  images: string[]
-}
+import { Character } from '@/types/Character'
 
 type CharacterTableProps = {
   characters: [string, Character][]

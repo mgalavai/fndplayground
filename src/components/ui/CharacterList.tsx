@@ -1,7 +1,7 @@
-// File: src/components/CharacterList.tsx
+// File: src/components/ui/CharacterList.tsx
 import React from 'react'
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
-import { Character } from './CharacterTable'
+import { Character } from '@/types/Character'
 
 type CharacterListProps = {
   characters: [string, Character][]
