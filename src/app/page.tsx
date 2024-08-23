@@ -1,19 +1,28 @@
+// File: src/app/page.tsx
 'use client'
 
 import { useState } from 'react'
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Switch } from "@/components/ui/switch"
-import CharacterList from '@/components/ui/CharacterList'
-import CharacterTable from '@/components/CharacterTable'
+import CharacterList from '@/components/CharacterList'
+import CharacterTable, { Character } from '@/components/CharacterTable'
 import characterData from '@/data/characters.json'
+
+type CharacterData = {
+  characters: {
+    [key: string]: Character
+  }
+}
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState('')
   const [filter, setFilter] = useState('all')
   const [isTableView, setIsTableView] = useState(false)
 
-  const filteredCharacters = Object.entries(characterData.characters).filter(([name, char]) => {
+  const typedCharacterData = characterData as CharacterData
+
+  const filteredCharacters = Object.entries(typedCharacterData.characters).filter(([name, char]) => {
     return name.toLowerCase().includes(searchTerm.toLowerCase()) &&
       (filter === 'all' || char.color.toLowerCase().startsWith(filter))
   })
