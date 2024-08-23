@@ -11,7 +11,7 @@ import characterData from '@/data/characters.json'
 
 type CharacterData = {
   characters: {
-    [key: string]: Character
+    [key: string]: Omit<Character, 'name'>
   }
 }
 
@@ -22,10 +22,11 @@ export default function Home() {
 
   const typedCharacterData = characterData as CharacterData
 
-  const filteredCharacters: [string, Character][] = Object.entries(typedCharacterData.characters).filter(([name, char]) => {
-    return name.toLowerCase().includes(searchTerm.toLowerCase()) &&
-      (filter === 'all' || char.color.toLowerCase().startsWith(filter))
-  })
+  const filteredCharacters = Object.entries(typedCharacterData.characters)
+    .filter(([name, char]) => {
+      return name.toLowerCase().includes(searchTerm.toLowerCase()) &&
+        (filter === 'all' || char.color.toLowerCase().startsWith(filter))
+    }) as [string, Character][]
 
   return (
     <main className="container mx-auto p-4">
